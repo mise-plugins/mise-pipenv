@@ -1,0 +1,29 @@
+#:schema https://rtx.pub/schema/rtx.plugin.json
+
+[exec-env]
+cache-key = [
+  """
+  {% if project_root %}
+    {{ project_root | canonicalize }}
+  {% endif %}
+  """,
+  """
+  {% if opts.pipfile %}
+    {{ opts.pipfile }}
+  {% endif %}
+  """
+]
+
+[list-bin-paths]
+cache-key = [
+  """
+  {% if project_root %}
+    {{ project_root | canonicalize }}
+  {% endif %}
+  """,
+  """
+  {% if opts.pipfile %}
+    {{ opts.pipfile }}
+  {% endif %}
+  """
+]
