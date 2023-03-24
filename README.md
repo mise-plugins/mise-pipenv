@@ -59,3 +59,14 @@ To set a project-specific version of `pipenv`:
 ```bash
 asdf local pipenv 2018.11.26
 ```
+
+## Virtualenv Activation
+
+Automatically activate the pipenv virtualenv when entering the directory with the following
+`.rtx.toml`:
+
+```toml
+[tools]
+pipenv = {version='latest', pipfile='Pipfile'}
+python = '3.11' # must be after pipenv so the pipenv bin is first in PATH
+```
