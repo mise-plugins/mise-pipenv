@@ -5,7 +5,7 @@ source "$RTX_PLUGIN_PATH/bin/utils.sh"
 
 VIRTUAL_ENV="$(pipenv_venv)"
 if [ -z "$VIRTUAL_ENV" ]; then
-	echo "asdf_bin"
+    echo "asdf_bin"
 else
-	echo "$VIRTUAL_ENV/bin asdf_bin"
+    echo "$VIRTUAL_ENV/bin asdf_bin"
 fi

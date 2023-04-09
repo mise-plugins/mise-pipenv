@@ -6,13 +6,13 @@ set -euo pipefail
 source "$RTX_PLUGIN_PATH/bin/utils.sh"
 
 setup_pipenv() {
-	VIRTUAL_ENV=$(pipenv_venv)
-	if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
-		"$(pipenv_bin)" install --dev
-		VIRTUAL_ENV=$(pipenv --venv)
-	fi
-	PIPENV_ACTIVE=1
-	export VIRTUAL_ENV PIPENV_ACTIVE
+    VIRTUAL_ENV=$(pipenv_venv)
+    if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
+        "$(pipenv_bin)" install --dev
+        VIRTUAL_ENV=$(pipenv --venv)
+    fi
+    PIPENV_ACTIVE=1
+    export VIRTUAL_ENV PIPENV_ACTIVE
 }
 
 setup_pipenv
