@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echoerr() {
-  printf "\033[0;31m%s\033[0m" "$1" >&2
+  echo "$1" >&2
 }
 
 pipenv_bin() {
@@ -18,7 +18,7 @@ pipenv_venv() {
     pipfile="${RTX_PROJECT_ROOT:-}/$pipfile"
   fi
   if [[ ! -f "$pipfile" ]]; then
-    echoerr "rtx-python: no Pipfile found at $pipfile"
+    echoerr "rtx-pipenv: no Pipfile found at $pipfile"
     exit 1
   fi
   "$(pipenv_bin)" --venv 2>/dev/null
