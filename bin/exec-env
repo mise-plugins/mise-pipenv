@@ -7,7 +7,11 @@ source "$RTX_PLUGIN_PATH/bin/utils.sh"
 
 setup_pipenv() {
     VIRTUAL_ENV=$(pipenv_venv)
-    if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
+    if [[ -z $VIRTUAL_ENV ]]; then
+        return
+    fi
+
+    if [[ ! -d $VIRTUAL_ENV ]]; then
         "$(pipenv_bin)" install --dev
         VIRTUAL_ENV=$(pipenv --venv)
     fi
