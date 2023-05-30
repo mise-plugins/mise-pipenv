@@ -21,5 +21,7 @@ pipenv_venv() {
         echoerr "rtx-pipenv: no Pipfile found at $pipfile"
         exit 1
     fi
-    "$(pipenv_bin)" --venv 2>/dev/null
+
+    pipenv_venv_dir="$("$(pipenv_bin)" --venv 2>/dev/null)"
+    echo "${pipenv_venv_dir:-pipfile found without venv}"
 }
