@@ -12,7 +12,8 @@ setup_pipenv() {
         VIRTUAL_ENV=$(pipenv --venv)
     fi
     PIPENV_ACTIVE=1
-    export VIRTUAL_ENV PIPENV_ACTIVE
+    RTX_ADD_PATH="$VIRTUAL_ENV/bin"
+    export VIRTUAL_ENV PIPENV_ACTIVE RTX_ADD_PATH
 }
 
 setup_pipenv
