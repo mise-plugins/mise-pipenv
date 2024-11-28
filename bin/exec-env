@@ -7,9 +7,16 @@ source "$RTX_PLUGIN_PATH/bin/utils.sh"
 
 setup_pipenv() {
     VIRTUAL_ENV=$(pipenv_venv)
-    if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
-        "$(pipenv_bin)" install --dev
-        VIRTUAL_ENV=$(pipenv --venv)
+    if [[ -z $VIRTUAL_ENV ]]; then
+        # in a directory without a Pipfile
+        return
+    fi
+
+    if [[ ! -d $VIRTUAL_ENV ]]; then
+        # in a directory with a Pipfile but no virtualenv
+        echoerr "rtx-pipenv: $VIRTUAL_ENV"
+        echoerr "rtx-pipenv: install pipenv virtualenv manually 'pipenv install ...'"
+        return
     fi
     PIPENV_ACTIVE=1
     RTX_ADD_PATH="$VIRTUAL_ENV/bin"
